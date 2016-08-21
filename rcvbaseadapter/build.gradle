@@ -1,22 +1,22 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.SakuraWood'
+group = 'com.github.SakuraWood'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'rcvbaseadpter'
+    bintrayName = 'rcvbaseadapter'
 
     publishedGroupId = 'com.sakurawood'
-    libraryName = 'rcvbaseadpter'
-    artifact = 'rcvbaseadpter'
+    libraryName = 'rcvbaseadapter'
+    artifact = 'rcvbaseadapter'
 
     libraryDescription = 'An Base Adapter for RecyclerView on Android'
 
     siteUrl = 'https://github.com/SakuraWood/RcvBaseAdapter'
     gitUrl = 'https://github.com/SakuraWood/RcvBaseAdapter.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '0.1.0'
 
     developerId = 'sakurawood'
     developerName = 'Sakura Wood'
@@ -35,7 +35,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName "0.1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -60,3 +60,6 @@ dependencies {
     compile 'com.android.support:design:23.4.0'
 
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
