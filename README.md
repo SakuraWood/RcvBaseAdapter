@@ -40,7 +40,7 @@ compile 'com.sakurawood:rcvbaseadapter:0.1.0'
                 holder.setOnClickListener(R.id.img, new RcvBaseAdapter.OnItemChildClickListener());
             }
 
-        };
+  };
 
 ```
 
@@ -57,9 +57,9 @@ compile 'com.sakurawood:rcvbaseadapter:0.1.0'
             public boolean onLongClick(View view, int position) {
                 return false;
             }
-        });
+  });
 //add listener of item child view 
-        RcvBaseAdapter.setOnRecyclerViewChildItemClickListener(new RcvBaseAdapter.OnRecyclerViewChildItemClickListener() {
+  RcvBaseAdapter.setOnRecyclerViewChildItemClickListener(new RcvBaseAdapter.OnRecyclerViewChildItemClickListener() {
             @Override
             public void onChildClick(View view, int position) {
                 switch (view.getId()) {
@@ -76,7 +76,7 @@ compile 'com.sakurawood:rcvbaseadapter:0.1.0'
             public boolean onChildLongClick(View view, int position) {
                 return false;
             }
-        });
+  });
 ```
 * Add a swipe or drag listener of item:
 ```java
