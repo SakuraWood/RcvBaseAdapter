@@ -9,20 +9,20 @@ An base adapter for android recyclerview
 ##Get it
 * Gradle
 ```
-compile 'com.sakurawood:rcvbaseadapter:0.1.1'
+compile 'com.sakurawood:rcvbaseadapter:0.1.2'
 ```
 * Maven
 ```
 <dependency>
   <groupId>com.sakurawood</groupId>
   <artifactId>rcvbaseadapter</artifactId>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
   <type>pom</type>
 </dependency>
 ```
 * Ivy
 ```
-<dependency org='com.sakurawood' name='rcvbaseadapter' rev='0.1.1'>
+<dependency org='com.sakurawood' name='rcvbaseadapter' rev='0.1.2'>
   <artifact name='$AID' ext='pom'></artifact>
 </dependency>
 ```
@@ -33,7 +33,7 @@ compile 'com.sakurawood:rcvbaseadapter:0.1.1'
   RcvBaseAdapter = new RcvBaseAdapter<Bean>(getApplicationContext(), R.layout.item, list) {
 
             @Override
-            protected void convert(BaseViewHolder holder, Bean item) {
+            protected void convert(BaseViewHolder holder, Bean item ,int position) {
                 holder.setText(R.id.name, item.getName());
                 holder.setText(R.id.value, item.getValue());
                 holder.setImageResource(R.id.img, item.getPic());
