@@ -9,20 +9,20 @@ An base adapter for android recyclerview
 ##Get it
 * Gradle
 ```
-compile 'com.sakurawood:rcvbaseadapter:0.1.3'
+compile 'com.sakurawood:rcvbaseadapter:0.1.4'
 ```
 * Maven
 ```
 <dependency>
   <groupId>com.sakurawood</groupId>
   <artifactId>rcvbaseadapter</artifactId>
-  <version>0.1.3</version>
+  <version>0.1.4</version>
   <type>pom</type>
 </dependency>
 ```
 * Ivy
 ```
-<dependency org='com.sakurawood' name='rcvbaseadapter' rev='0.1.3'>
+<dependency org='com.sakurawood' name='rcvbaseadapter' rev='0.1.4'>
   <artifact name='$AID' ext='pom'></artifact>
 </dependency>
 ```
