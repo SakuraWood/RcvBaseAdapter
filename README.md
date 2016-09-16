@@ -9,20 +9,20 @@ An base adapter for android recyclerview
 ##Get it
 * Gradle
 ```
-compile 'com.sakurawood:rcvbaseadapter:0.1.2'
+compile 'com.sakurawood:rcvbaseadapter:0.1.3'
 ```
 * Maven
 ```
 <dependency>
   <groupId>com.sakurawood</groupId>
   <artifactId>rcvbaseadapter</artifactId>
-  <version>0.1.2</version>
+  <version>0.1.3</version>
   <type>pom</type>
 </dependency>
 ```
 * Ivy
 ```
-<dependency org='com.sakurawood' name='rcvbaseadapter' rev='0.1.2'>
+<dependency org='com.sakurawood' name='rcvbaseadapter' rev='0.1.3'>
   <artifact name='$AID' ext='pom'></artifact>
 </dependency>
 ```
@@ -38,8 +38,21 @@ compile 'com.sakurawood:rcvbaseadapter:0.1.2'
                 holder.setText(R.id.value, item.getValue());
                 holder.setImageResource(R.id.img, item.getPic());
                 holder.setOnClickListener(R.id.img, new RcvBaseAdapter.OnItemChildClickListener());
+                holder.setOnClickListener(R.id.img, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    //change your list bean by the position...
+                        if (!list.get(position).isBl()) {
+                            list.get(position).setPic(R.drawable.img_9);
+                            list.get(position).setBl(true);
+                        } else {
+                            list.get(position).setPic(R.drawable.sakura);
+                            list.get(position).setBl(false);
+                        }
+                        notifyDataSetChanged();
+                    }
+                });
             }
-
   };
 
 ```
