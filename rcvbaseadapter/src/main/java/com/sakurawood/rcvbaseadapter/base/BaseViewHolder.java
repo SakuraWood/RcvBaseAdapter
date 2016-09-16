@@ -165,4 +165,22 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    /**
+     * set the adapter of a child recylerview.
+     *
+     * @param viewId
+     * @param rcvBaseAdapter
+     * @return
+     */
+    public BaseViewHolder setAdapter(
+            int viewId, RcvBaseAdapter rcvBaseAdapter
+            , RecyclerView.LayoutManager rlm
+    ) {
+        View view = getView(viewId);
+        if (view instanceof RecyclerView) {
+            ((RecyclerView) view).setLayoutManager(rlm);
+            ((RecyclerView) view).setAdapter(rcvBaseAdapter);
+        }
+        return this;
+    }
 }
