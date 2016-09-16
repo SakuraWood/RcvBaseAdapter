@@ -30,6 +30,10 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         this.convertView = itemview;
     }
 
+    public View getHoldView() {
+        return this.convertView;
+    }
+
     /**
      * to get the type of a view
      *
@@ -65,6 +69,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         }
         return this;
     }
+
 
     /**
      * set color of a text or a button
@@ -138,7 +143,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
     }
 
     /**
-     * set the ItemListener of a view
+     * set the Listener of a view
      *
      * @param viewId
      * @param vol
@@ -147,6 +152,19 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
     public BaseViewHolder setOnClickListener(int viewId, View.OnClickListener vol) {
         View view = getView(viewId);
         view.setOnClickListener(vol);
+        return this;
+    }
+
+    /**
+     * set the LongListener of a view
+     *
+     * @param viewId
+     * @param voll
+     * @return
+     */
+    public BaseViewHolder setOnLongClickListener(int viewId, View.OnLongClickListener voll) {
+        View view = getView(viewId);
+        view.setOnLongClickListener(voll);
         return this;
     }
 
@@ -183,4 +201,5 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         }
         return this;
     }
+
 }
