@@ -8,7 +8,6 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.Toast;
 
-
 import com.sakurawood.rcvbaseadapter.base.BaseViewHolder;
 import com.sakurawood.rcvbaseadapter.base.RcvBaseAdapter;
 import com.sakurawood.rcvbaseadapter.callback.DragSwipeCallback;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         RcvBaseAdapter = new RcvBaseAdapter<Bean>(getApplicationContext(), R.layout.item, list) {
 
             @Override
-            protected void convert(BaseViewHolder holder, Bean item) {
+            protected void convert(BaseViewHolder holder, Bean item, int positon) {
                 holder.setText(R.id.name, item.getName());
                 holder.setText(R.id.value, item.getValue());
                 holder.setImageResource(R.id.img, item.getPic());
@@ -47,18 +46,18 @@ public class MainActivity extends AppCompatActivity {
         };
         RcvBaseAdapter.setOnRecyclerViewItemClickListener(new RcvBaseAdapter.OnRecyclerViewItemClickListener() {
             @Override
-            public void onClick(View view, int position) {
+            public void onClick(View view, Object position) {
                 Toast.makeText(MainActivity.this, "haha" + "   " + position, Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public boolean onLongClick(View view, int position) {
+            public boolean onLongClick(View view, Object position) {
                 return false;
             }
         });
         RcvBaseAdapter.setOnRecyclerViewChildItemClickListener(new RcvBaseAdapter.OnRecyclerViewChildItemClickListener() {
             @Override
-            public void onChildClick(View view, int position) {
+            public void onChildClick(View view, Object position) {
                 switch (view.getId()) {
                     case R.id.img:
                         Toast.makeText(MainActivity.this,
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public boolean onChildLongClick(View view, int position) {
+            public boolean onChildLongClick(View view, Object position) {
                 return false;
             }
         });
@@ -78,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         dscb.setDragEnable(true);
         dscb.setSwipeEnable(true);
         ItemTouchHelper touchHelper = new ItemTouchHelper(dscb);
+//        recyclerView.setAttachHelper(touchHelper);
         touchHelper.attachToRecyclerView(recyclerView);
         recyclerView.setAdapter(RcvBaseAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));

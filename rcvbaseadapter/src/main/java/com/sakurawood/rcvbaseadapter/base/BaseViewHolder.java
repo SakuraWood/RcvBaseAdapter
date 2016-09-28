@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -98,8 +99,14 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      * @return BaseViewHolder of Chaining
      */
     public BaseViewHolder setImageResource(int viewId, int imgId) {
-        ImageView view = getView(viewId);
-        view.setImageResource(imgId);
+        View view = getView(viewId);
+        if (view instanceof ImageView) {
+            ImageView imageView = getView(viewId);
+            imageView.setImageResource(imgId);
+        } else if (view instanceof ImageButton) {
+            ImageButton imageButton = getView(viewId);
+            imageButton.setImageResource(imgId);
+        }
         return this;
     }
 
@@ -126,6 +133,12 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
     public BaseViewHolder setVisibility(int viewId, boolean bl) {
         View view = getView(viewId);
         view.setVisibility(bl ? View.VISIBLE : View.GONE);
+        return this;
+    }
+
+    public BaseViewHolder setVisibility(int viewId, int value) {
+        View view = getView(viewId);
+        view.setVisibility(value);
         return this;
     }
 
@@ -201,5 +214,4 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         }
         return this;
     }
-
 }
