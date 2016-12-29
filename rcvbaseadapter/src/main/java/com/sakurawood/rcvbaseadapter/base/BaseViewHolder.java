@@ -1,6 +1,7 @@
 package com.sakurawood.rcvbaseadapter.base;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
@@ -87,6 +88,25 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         } else {
             Button button = getView(viewId);
             button.setTextColor(color);
+        }
+        return this;
+    }
+
+    /**
+     * set color of a text or a button
+     *
+     * @param viewId
+     * @param resId
+     * @return BaseViewHolder of Chaining
+     */
+    public BaseViewHolder setTextResColor(int viewId, int resId) {
+        View view = getView(viewId);
+        if (view instanceof TextView) {
+            TextView textView = getView(viewId);
+            textView.setTextColor(context.getResources().getColor(resId));
+        } else {
+            Button button = getView(viewId);
+            button.setTextColor(context.getResources().getColor(resId));
         }
         return this;
     }
@@ -211,6 +231,75 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         if (view instanceof RecyclerView) {
             ((RecyclerView) view).setLayoutManager(rlm);
             ((RecyclerView) view).setAdapter(rcvBaseAdapter);
+        }
+        return this;
+    }
+
+    /**
+     * set the font of a textview
+     *
+     * @param viewId
+     * @param context
+     * @return
+     */
+    public BaseViewHolder setFont(
+            int viewId, Context context, String path) {
+        Typeface type = Typeface.createFromAsset(context.getAssets(), path);
+        View view = getView(viewId);
+        if (view instanceof TextView) {
+            ((TextView) view).setTypeface(type);
+        }
+        return this;
+    }
+
+    /**
+     * set the font of a textview
+     *
+     * @param viewId
+     * @param string
+     * @return
+     */
+    public BaseViewHolder setFontText(
+            int viewId, String string, String path) {
+        Typeface type = Typeface.createFromAsset(context.getAssets(), path);
+        View view = getView(viewId);
+        if (view instanceof TextView) {
+            ((TextView) view).setTypeface(type);
+            ((TextView) view).setText(string);
+        }
+        return this;
+    }
+
+    /**
+     * set the size of a textview
+     *
+     * @param viewId
+     * @param size
+     * @return
+     */
+    public BaseViewHolder setTextSize(
+            int viewId, float size) {
+        View view = getView(viewId);
+        if (view instanceof TextView) {
+            ((TextView) view).setTextSize(size);
+        }
+        return this;
+    }
+
+    /**
+     * set the bold font of a textview
+     *
+     * @param viewId
+     * @return
+     */
+    public BaseViewHolder setBoldFont(
+            int viewId, String string, String path) {
+        Typeface type = Typeface.createFromAsset(context.getAssets(), path);
+        View view = getView(viewId);
+        if (view instanceof TextView) {
+            ((TextView) view).setTypeface(type);
+            ((TextView) view).getPaint().setFakeBoldText(true);
+            ((TextView) view).setText(string);
         }
         return this;
     }

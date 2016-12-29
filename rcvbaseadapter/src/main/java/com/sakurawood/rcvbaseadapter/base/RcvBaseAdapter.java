@@ -131,10 +131,14 @@ public abstract class RcvBaseAdapter<T> extends RecyclerView.Adapter<RecyclerVie
         } else if (position == mdata.size() + 1 && loadingView != null) {
 
         } else {
-            T item = mdata.get(position - headerNum);
-            initItemClickListener((BaseViewHolder) holder);
-            ((BaseViewHolder) holder).getHoldView().setTag(position);
-            convert((BaseViewHolder) holder, item, position);
+            try {
+                T item = mdata.get(position - headerNum);
+                initItemClickListener((BaseViewHolder) holder);
+                ((BaseViewHolder) holder).getHoldView().setTag(position);
+                convert((BaseViewHolder) holder, item, position);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -222,7 +226,7 @@ public abstract class RcvBaseAdapter<T> extends RecyclerView.Adapter<RecyclerVie
         int content_size = mdata.size();
         if (headerView != null && position == 0) {
             return headerType;
-        } else if (loadingView != null && position > content_size) {
+        } else if (loadingView != null && position > content_size - 1 + headerNum) {
             return loadingType;
         } else {
             return customType;
@@ -235,15 +239,15 @@ public abstract class RcvBaseAdapter<T> extends RecyclerView.Adapter<RecyclerVie
         return super.getItemId(position);
     }
 
-//    public void addFooterView(View view) {
-//        this.loadingView = view;
-//        notifyDataSetChanged();
-//    }
-//
-//    public void addHeaderView(View view) {
-//        this.headerView = view;
-//        notifyDataSetChanged();
-//    }
+    public void addFooterView(View view) {
+        this.loadingView = view;
+        notifyDataSetChanged();
+    }
+
+    public void addHeaderView(View view) {
+        this.headerView = view;
+        notifyDataSetChanged();
+    }
 
     /**
      * set click listener of item

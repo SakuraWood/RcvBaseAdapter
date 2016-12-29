@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.sakurawood.rcvbaseadapter.base.BaseViewHolder;
@@ -24,12 +26,16 @@ public class MainActivity extends AppCompatActivity {
     RcvBaseAdapter RcvBaseAdapter;
     DragSwipeCallback dscb;
 
+    RelativeLayout footer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         recyclerView = (RecyclerView) findViewById(R.id.list);
+
+        footer = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.refresh_footer, null);
 
         init();
 
@@ -44,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         };
+
+        RcvBaseAdapter.addFooterView(footer);
         RcvBaseAdapter.setOnRecyclerViewItemClickListener(new RcvBaseAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onClick(View view, Object position) {
