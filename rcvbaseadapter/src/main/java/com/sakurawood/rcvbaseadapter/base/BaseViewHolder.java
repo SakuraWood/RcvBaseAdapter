@@ -93,6 +93,45 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
     }
 
     /**
+     * set activate state of a view
+     *
+     * @param viewId
+     * @param bl
+     * @return BaseViewHolder of Chaining
+     */
+    public BaseViewHolder setActivated(int viewId, boolean bl) {
+        View view = getView(viewId);
+        view.setActivated(bl);
+        return this;
+    }
+
+    /**
+     * set press state of a view
+     *
+     * @param viewId
+     * @param bl
+     * @return BaseViewHolder of Chaining
+     */
+    public BaseViewHolder setPressed(int viewId, boolean bl) {
+        View view = getView(viewId);
+        view.setPressed(bl);
+        return this;
+    }
+
+    /**
+     * set focusable state of a view
+     *
+     * @param viewId
+     * @param bl
+     * @return BaseViewHolder of Chaining
+     */
+    public BaseViewHolder setFocusable(int viewId, boolean bl) {
+        View view = getView(viewId);
+        view.setFocusable(bl);
+        return this;
+    }
+
+    /**
      * set color of a text or a button
      *
      * @param viewId

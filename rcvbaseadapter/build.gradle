@@ -16,7 +16,7 @@ ext {
     siteUrl = 'https://github.com/SakuraWood/RcvBaseAdapter'
     gitUrl = 'https://github.com/SakuraWood/RcvBaseAdapter.git'
 
-    libraryVersion = '0.2.6'
+    libraryVersion = '0.2.7'
 
     developerId = 'sakurawood'
     developerName = 'Sakura Wood'
@@ -35,7 +35,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
-        versionName "0.2.6"
+        versionName "0.2.7"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
